@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exposure Café</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="icon" type="favicon" href="https://i.imgur.com/OdTOxu8.png">
+</head>
+<body>
+
+  <div class="ui fixed inverted menu" style="background-color: chocolate">
+    <div class="ui container">
+      <div class="header item" style="margin-right: 10px; color: black">
+        <i class="coffee icon"></i>
+        Exposure Café
+      </div>
+      <a href="/" class="item" style="margin-left: 320px; color: black; font-weight: bolder; font-size: 20px">Coffee Talk</a>
+      <a href="/blogs/new" class="item" style="margin-left: 184px; color: black; font-weight: bold"><i class="plus circle icon"></i>Add a new blog</a>
+      <div class="right menu">
+          <? if(!currentUser){ ?>
+            <a class="ui item inverted brown button" href="/login">LogIn</a>
+            <a class="ui item inverted brown button" href="/register"><i class="pencil alternate icon"></i>SignUp</a>
+          <? } else{ ?>
+            <a class="ui item" href="#">Hey, <?= currentUser.username ?>!</a>
+            <a class="ui item inverted red button"  href="/logout"><i class="power off icon"></i>LogOut</a>
+          <? } ?>
+        </div>
+      </div>
+      
+    </div>
+    
+    <? if(error && error.length > 0){?>
+    <div class="ui red message"><?= error ?></div>
+    <? } ?>
+    <? if(success && success.length > 0){?>
+    <div class="ui floating message"><?= success ?></div>
+    <? } ?>
+    <div id="love-u">
